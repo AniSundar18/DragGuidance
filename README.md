@@ -17,5 +17,5 @@ Given an image, the user has the option to specify 2 sets of points. These sets 
   <strong>Figure 2:</strong> Increasing the height of a mountain.
 </p>
 
-
-
+## Identifying objects using feature correspondence
+To solve this problem, we primarily need to identify the object that is being moved. The DIFT paper, observes that correspondence emerges in diffusion models without any explicit supervision. This can be done using the feature maps of the Stable Diffusion UNet. We extend this behaviour and use the handle point to identify the object of interest, using a heatmap.

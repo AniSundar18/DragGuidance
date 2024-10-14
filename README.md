@@ -34,8 +34,9 @@ We have a single point in our image as the input, we need to use that single poi
 
 *The handle point of the beaks in one of the birds can be used to detect the beak of another bird in a different position. We pass both images through the **diffusion model UNet** and extract their features. We then select the **feature vector** corresponding to the **handle point** and compute the **element-wise similarity** between the target image feature representation and our feature vector. With some **thresholding**, we can see that the beak can be exclusively identified using this approach.*
 
-
 </div>
+## Dragging the Identified part of the image
+Now that we have a way to identify the part of the image that the handle point is referred to, we want to move the part such that the handle point comes to the target point. In order to do so, we add additional guidance terms based on the [Self-Guidance](https://arxiv.org/abs/2306.00986) paper. 
 
 
 

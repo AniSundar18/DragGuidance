@@ -88,6 +88,7 @@ Where:
 - **$A_{current}$** is the current \( $dim$ \)-dimensional feature vector.
 - **c** denotes the channel index, running from 1 to **dim**.
 
+While the preservation objective helps with preventing loss of identity, in order to get exact similarity to the original image, we use the idea of [Mutual self-attention](https://openaccess.thecvf.com/content/ICCV2023/papers/Cao_MasaCtrl_Tuning-Free_Mutual_Self-Attention_Control_for_Consistent_Image_Synthesis_and_ICCV_2023_paper.pdf). Mutual self-attention (MaSa), modifies the attention mechanism of the UNet in order to preserve the details of the image. In order to preserve the appearence of the original image, MaSa retains the layer-wise attention maps of the original image. Then when editing, the keys and values in the UNet's attention layers are replaced by the keys and values of the original image. This way, the features are directly influenced by the original image as opposed to the edited image. Therefore, the movement loss changes the geometry and the appearence loss coupled with the Mutual Self-Attention preserves the appearence.
 
 
 

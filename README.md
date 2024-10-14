@@ -52,6 +52,20 @@ Where:
 - **(x, y)** represents the spatial coordinates.
 - **H(x, y)** is the heat value at the spatial location `(x, y)`.
 
+After computing the position of the handle point in a differentiable manner, we then define a movement objective which we will use as an energy function for guidance, we define this function as follows,
+
+$$
+L_{\text{movement}} = |C_x - t_x| + |C_y - t_y|
+$$
+
+Where:
+\begin{itemize}
+    \item \textbf{L\textsubscript{movement}} is the L1 distance representing the movement required.
+    \item \textbf{C\textsubscript{x}} and \textbf{C\textsubscript{y}} are the coordinates of the centroid \textbf{C}.
+    \item \textbf{t\textsubscript{x}} and \textbf{t\textsubscript{y}} are the coordinates of the target point \textbf{T}.
+\end{itemize}
+
+
 
 
 

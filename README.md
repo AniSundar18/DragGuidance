@@ -42,16 +42,15 @@ Now that we have a method to identify the part of the image corresponding to the
 Our approach is straightforward: using the heatmap generated during the process, we calculate the average of the spatial locations, weighted by the similarity score. This calculation yields the **centroid** of the part to be moved in a differentiable manner. At the starting point, this centroid is approximately aligned with the handle point.
 
 We then establish a simple objective: to minimize the **L2 distance** between the centroid and the target point. This objective serves as a guiding mechanism for the score predicted by the diffusion model. This process is clearly illustrated below,
-Given a spatial heat map \( H(x, y) \) where each pixel value represents the intensity of heat, we can compute the **centroid** of the heat distribution using a weighted average of the spatial locations. The computation can be expressed mathematically as follows:
 
-\[
-C = \frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)}
-\]
+Given a spatial heat map `H(x, y)` where each pixel value represents the intensity of heat, we can compute the **centroid** of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
+
+C = \(\frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)}\)
 
 Where:
-- \( C \) is the centroid of the heat map.
-- \( (x, y) \) represents the spatial coordinates.
-- \( H(x, y) \) is the heat value at the spatial location \( (x, y) \).
+- **C** is the centroid of the heat map.
+- **(x, y)** represents the spatial coordinates.
+- **H(x, y)** is the heat value at the spatial location `(x, y)`.
 
 
 

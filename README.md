@@ -18,4 +18,10 @@ Given an image, the user has the option to specify 2 sets of points. These sets 
 </p>
 
 ## Identifying objects using feature correspondence
-To solve this problem, we primarily need to identify the object that is being moved. The DIFT paper, observes that correspondence emerges in diffusion models without any explicit supervision. This can be done using the feature maps of the Stable Diffusion UNet. We extend this behaviour and use the handle point to identify the object of interest, using a heatmap.
+Drag-based editing relies on 3 important steps,
+1. Identifying the object corresponding to the handle point
+2. Moving the identified object as per the edit instructions
+3. Preserving the identity of the image in other places
+
+
+

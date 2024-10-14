@@ -28,6 +28,13 @@ On a high-level, we first identify the part of the image that needs to be edited
 ## Identifying the Part to be Dragged in the Image 
 We have a single point in our image as the input, we need to use that single point in order to identify the region to be dragged. We do so using feature correspondences. [DIFT](https://arxiv.org/abs/2306.03881) shows that the UNet used in large-scale text-to-image diffusion can be used to establish correspondences between real images. Our key idea is simple, use the feature vector in the UNet corresponding to the handle point, then identify the regions that are most similar (using cosine similarity). The pipeline can be found below,
 
+<div align="center">
+
+![Object Identification](teaser_fig/teaser_dift.png)
+
+*The handle point of the beaks in one of the birds can be used to detect the beak of another bird in a different position. We pass both the images through the diffusion model UNet and extract their features, we then select the feature vector corresponding to the handle point and then we compute the element-wise similarity between the target image feature representation and our feature vector. With some thresholding, we can see that the beak can be exclusively identified using this approach.*
+
+</div>
 
 
 

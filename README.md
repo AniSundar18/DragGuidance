@@ -39,9 +39,9 @@ We have a single point in our image as the input, we need to use that single poi
 ## Dragging the Identified part of the image
 Now that we have a method to identify the part of the image corresponding to the handle point, our next objective is to move this part so that the handle point aligns with the target point. To achieve this, we incorporate additional guidance terms based on the [Self-Guidance](https://arxiv.org/abs/2306.00986) paper.
 
-Our approach is straightforward: using the heatmap generated during the process, we calculate the average of the spatial locations, weighted by the similarity score. This calculation yields the **centroid** of the part to be moved in a differentiable manner. At the starting point, this centroid is approximately aligned with the handle point.
+Our approach is straightforward: using the heatmap generated during the process, we calculate the average of the spatial locations, weighted by the similarity score. Intuitively, this centroid shows where the heat of the image is concentrated (and hence position of the handle point). This calculation yields the **centroid** of the part to be moved in a differentiable manner. At the starting point, this centroid is approximately aligned with the handle point.
 
-More formally, given a spatial heat map `H(x, y)` where each pixel value represents the intensity of heat, we can compute the **centroid** of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
+More formally, given a spatial similarity heat map `H(x, y)` where each pixel value represents the similarity between with the handle point, we can compute the **centroid** of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
 
 $$
 C = \frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)}

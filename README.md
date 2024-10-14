@@ -66,7 +66,16 @@ Where:
 
 ## Preserving the identity of the image
 
-While making the edit, it is also important that we do not change the semantic content completely. Therefore, we introduce a preservation objective. We argue that most drag-based iamge edits do not change the rough appearence (colors, brightness etc) in an image. Based on this assumption, we preserve the average semantic content of the image. In order to do this, we first define the semantic content of an image using the spatial average of the feature map. This idea was inspired by the Self-Guidance and [Plug-and-Play](https://arxiv.org/abs/2211.12572) paper. We then enforce the objective which constrains the edited image to be as closely as possible to the original image. We call this objective as $L_{\text{appearence}}$.
+While making the edit, it is also important that we do not change the semantic content completely. Therefore, we introduce a preservation objective. We argue that most drag-based iamge edits do not change the rough appearence (colors, brightness etc) in an image. Based on this assumption, we preserve the average semantic content of the image. In order to do this, we first define the semantic content of an image using the spatial average of the feature map. This idea was inspired by the Self-Guidance and [Plug-and-Play](https://arxiv.org/abs/2211.12572) paper. We then enforce the objective which constrains the edited image to be as closely as possible to the original image. We call this objective as $L_{\text{appearence}}$, which is defined as follows,
+
+\[
+A = \frac{1}{h \cdot w} \sum_{i=1}^{h} \sum_{j=1}^{w} F_{i,j,:}
+\]
+
+Where:
+- **A** is the resulting \( \text{dim} \)-dimensional vector containing the spatial averages for each channel.
+- **F(i, j, :)** represents all the values across channels at position \( (i, j) \).
+
 
 
 

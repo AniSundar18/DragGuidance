@@ -84,8 +84,8 @@ $$
 
 Where:
 - **$L_{appearance}$** represents the Mean Squared Error (MSE) loss between the original and current appearance feature vectors.
-- **$A_{original}$** is the original \( \text{dim} \)-dimensional feature vector.
-- **$A_{current}$** is the current \( \text{dim} \)-dimensional feature vector.
+- **$A_{original}$** is the original \( $dim$ \)-dimensional feature vector.
+- **$A_{current}$** is the current \( $dim$ \)-dimensional feature vector.
 - **c** denotes the channel index, running from 1 to **dim**.
 
 

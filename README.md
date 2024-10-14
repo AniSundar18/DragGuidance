@@ -83,9 +83,9 @@ L_{\text{appearance}} = \frac{1}{\text{dim}} \sum_{c=1}^{\text{dim}} (A_{\text{o
 $$
 
 Where:
-- **L_appearance** represents the Mean Squared Error (MSE) loss between the original and current appearance feature vectors.
-- **A_original** is the original \( \text{dim} \)-dimensional feature vector.
-- **A_current** is the current \( \text{dim} \)-dimensional feature vector.
+- **$L_appearance$** represents the Mean Squared Error (MSE) loss between the original and current appearance feature vectors.
+- **$A_original$** is the original \( \text{dim} \)-dimensional feature vector.
+- **$A_current$** is the current \( \text{dim} \)-dimensional feature vector.
 - **c** denotes the channel index, running from 1 to **dim**.
 
 

@@ -35,8 +35,13 @@ We have a single point in our image as the input, we need to use that single poi
 *The handle point of the beaks in one of the birds can be used to detect the beak of another bird in a different position. We pass both images through the **diffusion model UNet** and extract their features. We then select the **feature vector** corresponding to the **handle point** and compute the **element-wise similarity** between the target image feature representation and our feature vector. With some **thresholding**, we can see that the beak can be exclusively identified using this approach.*
 
 </div>
+
 ## Dragging the Identified part of the image
-Now that we have a way to identify the part of the image that the handle point is referred to, we want to move the part such that the handle point comes to the target point. In order to do so, we add additional guidance terms based on the [Self-Guidance](https://arxiv.org/abs/2306.00986) paper. 
+Now that we have a method to identify the part of the image corresponding to the handle point, our next objective is to move this part so that the handle point aligns with the target point. To achieve this, we incorporate additional guidance terms based on the [Self-Guidance](https://arxiv.org/abs/2306.00986) paper.
+
+Our approach is straightforward: using the heatmap generated during the process, we calculate the average of the spatial locations, weighted by the similarity score. This calculation yields the **centroid** of the part to be moved in a differentiable manner. At the starting point, this centroid is approximately aligned with the handle point.
+
+We then establish a simple objective: to minimize the **L2 distance** between the centroid and the target point. This objective serves as a guiding mechanism for the score predicted by the diffusion model.
 
 
 

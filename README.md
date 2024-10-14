@@ -45,7 +45,9 @@ We then establish a simple objective: to minimize the **L2 distance** between th
 
 Given a spatial heat map `H(x, y)` where each pixel value represents the intensity of heat, we can compute the **centroid** of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
 
-C = \(\frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)}\)
+<p align="center">
+\( C = \frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)} \)
+</p>
 
 Where:
 - **C** is the centroid of the heat map.

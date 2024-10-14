@@ -59,7 +59,7 @@ L_{\text{movement}} = |C_x - t_x| + |C_y - t_y|
 $$
 
 Where:
-- **L_{movement}** is the L1 distance representing the movement required.
+- **$L_{movement}$** is the L1 distance representing the movement required.
 - **C_x** and **C_{y}** are the coordinates of the centroid **C**.
 - **t_{x}** and **t_{y}** are the coordinates of the target point **T**.
 

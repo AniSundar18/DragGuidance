@@ -17,7 +17,7 @@ Given an image, the user has the option to specify 2 sets of points. These sets 
   <strong>Figure 2:</strong> Increasing the height of a mountain.
 </p>
 
-## Identifying objects using feature correspondence
+## Method
 Drag-based editing relies on 3 important steps,
 1. Identifying the part of the image corresponding to the handle point
 2. Moving the identified object as per the edit instructions

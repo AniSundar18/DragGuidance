@@ -73,7 +73,7 @@ A = \frac{1}{h \cdot w} \sum_{i=1}^{h} \sum_{j=1}^{w} F_{i,j,:}
 $$
 
 Where:
-- **A** is the resulting \( \text{dim} \)-dimensional vector containing the spatial averages for each channel.
+- **A** is the resulting \( $dim$ \)-dimensional vector containing the spatial averages for each channel.
 - **F(i, j, :)** represents all the values across channels at position \( (i, j) \).
 
 

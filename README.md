@@ -32,7 +32,8 @@ We have a single point in our image as the input, we need to use that single poi
 
 ![Object Identification](teaser_fig/teaser_dift.png)
 
-*The handle point of the beaks in one of the birds can be used to detect the beak of another bird in a different position. We pass both the images through the diffusion model UNet and extract their features, we then select the feature vector corresponding to the handle point and then we compute the element-wise similarity between the target image feature representation and our feature vector. With some thresholding, we can see that the beak can be exclusively identified using this approach.*
+*The handle point of the beaks in one of the birds can be used to detect the beak of another bird in a different position. We pass both images through the **diffusion model UNet** and extract their features. We then select the **feature vector** corresponding to the **handle point** and compute the **element-wise similarity** between the target image feature representation and our feature vector. With some **thresholding**, we can see that the beak can be exclusively identified using this approach.*
+
 
 </div>
 

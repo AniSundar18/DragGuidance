@@ -76,6 +76,20 @@ Where:
 - **A** is the resulting \( $dim$ \)-dimensional vector containing the spatial averages for each channel.
 - **F(i, j, :)** represents all the values across channels at position \( (i, j) \).
 
+Using these, we define our preservation objective as follows,
+
+$$
+L_{\text{appearance}} = \frac{1}{\text{dim}} \sum_{c=1}^{\text{dim}} (A_{\text{original}, c} - A_{\text{current}, c})^2
+$$
+
+Where:
+- **L_appearance** represents the Mean Squared Error (MSE) loss between the original and current appearance feature vectors.
+- **A_original** is the original \( \text{dim} \)-dimensional feature vector.
+- **A_current** is the current \( \text{dim} \)-dimensional feature vector.
+- **c** denotes the channel index, running from 1 to **dim**.
+
+
+
 
 
 

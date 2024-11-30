@@ -224,7 +224,6 @@ In drag-based image editing, users can select a point in an image and move it to
 			</td>
 		</tr>
 	</center>
-</table>
 <center><h1>Step 2: Dragging the Identified Part of the Image</h1></center>
 
 <table align=center width=850px>
@@ -237,7 +236,7 @@ In drag-based image editing, users can select a point in an image and move it to
 				<br><br>
 				More formally, given a spatial similarity heat map <i>H(x, y)</i> where each pixel value represents the similarity with the handle point, we compute the <b>centroid</b> of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
 				<br><br>
-				<div align="center" style="font-size: 1.5em;">
+				<div align="center" style="font-size: 1.5em;>
 					<i>C = \(\frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)}\)</i>
 				</div>
 				<br>
@@ -249,7 +248,7 @@ In drag-based image editing, users can select a point in an image and move it to
 				</ul>
 				After computing the position of the handle point in a differentiable manner, we define a movement objective as an energy function for guidance. This function is defined as:
 				<br><br>
-				<div align="center" style="font-size: 1.5em;">
+				<div align="center" style="font-size: 1.5em;>
 					<i>L<sub>movement</sub> = |C<sub>x</sub> - t<sub>x</sub>| + |C<sub>y</sub> - t<sub>y</sub>|</i>
 				</div>
 				<br>
@@ -263,6 +262,7 @@ In drag-based image editing, users can select a point in an image and move it to
 		</tr>
 	</center>
 </table>
+
 
 
 	

@@ -215,10 +215,12 @@ In drag-based image editing, users can select a point in an image and move it to
 				We have a single point in our image as the input, which we use to identify the region to be dragged through feature correspondences. 
 				<a href="https://arxiv.org/abs/2306.03881">DIFT</a> demonstrates that the UNet in large-scale text-to-image diffusion models can establish correspondences between real images. 
 				Our key idea is simple: use the feature vector in the UNet corresponding to the handle point, and then identify the regions most similar using cosine similarity. The pipeline is detailed below:
-				<br><br>
-				<div align="center">
-					*The handle point of the beak in one bird can be used to detect the beak of another bird in a different position. Both images are passed through the <b>diffusion model UNet</b>, and their features are extracted. The <b>feature vector</b> corresponding to the <b>handle point</b> is selected, and the <b>element-wise similarity</b> between the target image's feature representation and this vector is computed. Applying <b>thresholding</b> reveals that the beak can be uniquely identified using this approach.*
-				</div>
+<br><br>
+<div align="center">
+    The handle point of the beak in one bird can be used to detect the beak of another bird in a different position. Both images are passed through the <b>diffusion model UNet</b>, and their features are extracted. The <b>feature vector</b> corresponding to the <b>handle point</b> is selected, and the <b>element-wise similarity</b> between the target image's feature representation and this vector is computed. Applying <b>thresholding</b> reveals that the beak can be uniquely identified using this approach.
+    <br><br>
+    <img src="./resources/teaser_dift.png" alt="Pipeline Diagram" width="400">
+</div>
 			</td>
 		</tr>
 	</center>

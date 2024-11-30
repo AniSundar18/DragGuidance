@@ -225,38 +225,32 @@ In drag-based image editing, users can select a point in an image and move it to
 		</tr>
 	</center>
 </table>
-</table>
-	<center><h1>Step 2: Dragging the Identified Part of the Image</h1></center>
+<center><h1>Step 2: Dragging the Identified Part of the Image</h1></center>
 
 <table align=center width=850px>
-		<center>
+	<center>
 		<tr>
 			<td>
 				Now that we have a method to identify the part of the image corresponding to the handle point, our next objective is to move this part so that the handle point aligns with the target point. To achieve this, we incorporate additional guidance terms based on the <a href="https://arxiv.org/abs/2306.00986">Self-Guidance</a> paper.
 				<br><br>
 				Our approach is straightforward: using the heatmap generated during the process, we calculate the average of the spatial locations, weighted by the similarity score. Intuitively, this centroid shows where the heat of the image is concentrated (and hence the position of the handle point). This calculation yields the <b>centroid</b> of the part to be moved in a differentiable manner. At the starting point, this centroid is approximately aligned with the handle point.
 				<br><br>
-				More formally, given a spatial similarity heat map <code>H(x, y)</code>, where each pixel value represents the similarity with the handle point, we can compute the <b>centroid</b> of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
+				More formally, given a spatial similarity heat map <i>H(x, y)</i> where each pixel value represents the similarity with the handle point, we compute the <b>centroid</b> of the heat distribution using a weighted average of the spatial locations. The computation can be expressed as follows:
 				<br><br>
-				<div align="center">
-					<code>
-					C = Σ<sub>x,y</sub> (x, y) · H(x, y) / Σ<sub>x,y</sub> H(x, y)
-					</code>
+				<div align="center" style="font-size: 1.5em;">
+					<i>C = \(\frac{\sum_{x,y} (x, y) \cdot H(x, y)}{\sum_{x,y} H(x, y)}\)</i>
 				</div>
 				<br>
 				Where:
 				<ul>
 					<li><b>C</b> is the centroid of the heat map.</li>
 					<li><b>(x, y)</b> represents the spatial coordinates.</li>
-					<li><b>H(x, y)</b> is the heat value at the spatial location <code>(x, y)</code>.</li>
+					<li><b>H(x, y)</b> is the heat value at the spatial location <b>(x, y)</b>.</li>
 				</ul>
-				<br>
-				After computing the position of the handle point in a differentiable manner, we then define a movement objective to be used as an energy function for guidance. This function is defined as follows:
+				After computing the position of the handle point in a differentiable manner, we define a movement objective as an energy function for guidance. This function is defined as:
 				<br><br>
-				<div align="center">
-					<code>
-					L<sub>movement</sub> = |C<sub>x</sub> - t<sub>x</sub>| + |C<sub>y</sub> - t<sub>y</sub>|
-					</code>
+				<div align="center" style="font-size: 1.5em;">
+					<i>L<sub>movement</sub> = |C<sub>x</sub> - t<sub>x</sub>| + |C<sub>y</sub> - t<sub>y</sub>|</i>
 				</div>
 				<br>
 				Where:
@@ -269,6 +263,7 @@ In drag-based image editing, users can select a point in an image and move it to
 		</tr>
 	</center>
 </table>
+
 
 	
 	<table align=center width=900px>

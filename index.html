@@ -196,7 +196,7 @@ In drag-based image editing, users can select a point in an image and move it to
 <table align=center width=850px>
 		<tr>
 			<td>
-				Drag-based editing relies on three important steps:
+				To perform drag-based image editing, the user has to select a point (handle point) and describe a destination (target point). Drag-based editing relies on three important steps:
 				<ol>
 					<li>Identifying the part of the image corresponding to the handle point.</li>
 					<li>Moving the identified object as per the edit instructions.</li>
@@ -212,14 +212,14 @@ In drag-based image editing, users can select a point in an image and move it to
 		<center>
 		<tr>
 			<td>
-				We have a single point in our image as the input, which we use to identify the region to be dragged through feature correspondences. 
-				<a href="https://arxiv.org/abs/2306.03881">DIFT</a> demonstrates that the UNet in large-scale text-to-image diffusion models can establish correspondences between real images. 
+				We have a single point in our image as the input. We need a way to identify the regions which will also move provided that we move the point. Prior works have observed that features belonging to the same object parts have very similar representations in the later layers of the UNet. 
+				<a href="https://arxiv.org/abs/2306.03881">DIFT</a> observes that the UNet in large-scale text-to-image diffusion models can learn correspondences between different images in later layers of the UNet. 
 				Our key idea is simple: use the feature vector in the UNet corresponding to the handle point, and then identify the regions most similar using cosine similarity. The pipeline is detailed below:
 <br><br>
 <div align="center">
     The handle point of the beak in one bird can be used to detect the beak of another bird in a different position. Both images are passed through the <b>diffusion model UNet</b>, and their features are extracted. The <b>feature vector</b> corresponding to the <b>handle point</b> is selected, and the <b>element-wise similarity</b> between the target image's feature representation and this vector is computed. Applying <b>thresholding</b> reveals that the beak can be uniquely identified using this approach.
     <br><br>
-    <img src="./resources/teaser_dift.png" alt="Pipeline Diagram" width="400">
+    <img src="./resources/teaser_dift.png" alt="Pipeline Diagram" width="800">
 </div>
 			</td>
 		</tr>

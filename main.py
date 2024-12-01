@@ -116,80 +116,13 @@ if __name__ == "__main__":
 
     opt = parser.parse_args()
     
-    #ABD
-    #opt.handle_points = [(20*8,22*8)]
-    #opt.target_points = [(20*8,10*8)]
 
-    #Baldeag after
-    #opt.handle_points = [(15*8,43*8)]
-    #opt.target_points = [(10*8,43*8)]
-
-    #Mountain
-    #opt.handle_points = [(20*8,30*8)]
-    #opt.target_points = [(13*8,30*8)]
-    
-    #opt.handle_points = [(23*8,31*8)]
-    #opt.target_points = [(30*8,31*8)]
-
-    #Bird
-    #opt.handle_points = [(7*8,15*8), (6*8,9*8), (6*8, 12*8)]
-    #opt.target_points = [(7*8,33*8), (6*8,39*8), (6*8, 35*8)]
-    
-    #opt.handle_points = [(7*8,14*8)]
-    #opt.target_points = [(7*8,32*8)]
-
-    #opt.handle_points = [(8*8,12*8)]
-    #opt.target_points = [(18*8, 12*8)]
-    
-    #lion
-    #opt.handle_points = [(35*8, 34*8)]
-    #opt.target_points = [(54*8, 34*8)]
     
     opt.handle_points = [(26*8, 12*8)]
     opt.target_points = [(26*8, 20*8)]
 
-    #opt.handle_points = [(45*8, 25*8)]
-    #opt.target_points = [(47*8, 36*8)]
+   
 
-    #Dog
-    #opt.handle_points = [(42*8, 42*8)]
-    #opt.target_points = [(30*8, 42*8)]
-
-    #opt.handle_points = [(32*8,19*8)]
-    #opt.target_points = [(32*8, 40*8)]
-
-    #Celeb2
-    #opt.handle_points = [(40*8, 34*8)]
-    #opt.target_points = [(39*8, 48*8)]
-
-    #horse
-    #opt.handle_points = [(46*8, 6*8)]
-    #opt.target_points = [(36*8, 6*8)]
-    
-    #opt.handle_points = [(44*8, 33*8)]
-    #opt.target_points = [(50*8, 33*8)]
-
-    #Celeb6
-    #opt.handle_points = [(45*8,32*8)]
-    #opt.target_points = [(51*8, 32*8)]
-    
-    #opt.handle_points = [(40*8, 3*8)]
-    #opt.target_points = [(40*8, 10*8)]
-    
-    #opt.handle_points = [(8*8, 25*8)]
-    #opt.target_points = [(16*8, 25*8)]
-
-    #opt.handle_points = [(44*8,45*8)]
-    #opt.target_points = [(44*8, 50*8)]
-    
-
-    #Eyes
-    #opt.handle_points = [(28*8,41*8)]
-    #opt.target_points = [(34*8,42*8)]
-    
-    #Celeb3
-    #opt.handle_points = [(50*8,33*8)]
-    #opt.target_points = [(55*8, 33*8)]
     
     extraction_path_prefix = "_reverse" if opt.extract_reverse else "_forward"
     save_path = os.path.join(opt.save_dir + extraction_path_prefix, os.path.splitext(os.path.basename(opt.data_path))[0])

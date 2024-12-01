@@ -277,11 +277,12 @@ In drag-based image editing, users can select a point in an image and move it to
     </script>
 </head>
 <body>
+<center><h1>Step 3: Preserving the Identity of the Image</h1></center>
 <table align="center" width="850px">
     <center>
         <tr>
             <td>
-                <h2 align="center">Step 3: Preserving the Identity of the Image</h2>
+                <h2 align="center"></h2>
                 While making the edit, it is also important that we do not change the semantic content completely. Therefore, we introduce a preservation objective. We argue that most drag-based image edits do not change the rough appearance (colors, brightness, etc.) in an image. Based on this assumption, we preserve the average semantic content of the image. 
                 <br><br>
                 To do this, we first define the semantic content of an image using the spatial average of the feature map. This idea was inspired by the <a href="https://arxiv.org/abs/2306.00986">Self-Guidance</a> and <a href="https://arxiv.org/abs/2211.12572">Plug-and-Play</a> papers. We then enforce the objective which constrains the edited image to be as close as possible to the original image. We call this objective <b>\( L_{\text{appearance}} \)</b>, defined as follows:

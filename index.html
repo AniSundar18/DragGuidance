@@ -271,6 +271,55 @@ In drag-based image editing, users can select a point in an image and move it to
 </table>
 </body>
 
+<head>
+    <script type="text/javascript" async 
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<table align="center" width="850px">
+    <center>
+        <tr>
+            <td>
+                <h2 align="center">Step 3: Preserving the Identity of the Image</h2>
+                While making the edit, it is also important that we do not change the semantic content completely. Therefore, we introduce a preservation objective. We argue that most drag-based image edits do not change the rough appearance (colors, brightness, etc.) in an image. Based on this assumption, we preserve the average semantic content of the image. 
+                <br><br>
+                To do this, we first define the semantic content of an image using the spatial average of the feature map. This idea was inspired by the <a href="https://arxiv.org/abs/2306.00986">Self-Guidance</a> and <a href="https://arxiv.org/abs/2211.12572">Plug-and-Play</a> papers. We then enforce the objective which constrains the edited image to be as close as possible to the original image. We call this objective <b>\( L_{\text{appearance}} \)</b>, defined as follows:
+                <br><br>
+                <p align="center" style="font-size: 2em;">
+                    $$ A = \frac{1}{h \cdot w} \sum_{i=1}^{h} \sum_{j=1}^{w} F_{i,j,:} $$
+                </p>
+                <br>
+                Where:
+                <ul>
+                    <li><b>A</b> is the resulting \( \text{dim} \)-dimensional vector containing the spatial averages for each channel.</li>
+                    <li><b>F(i, j, :)</b> represents all the values across channels at position \( (i, j) \).</li>
+                </ul>
+                <br>
+                Using these, we define our preservation objective as:
+                <br><br>
+                <p align="center" style="font-size: 2em;">
+                    $$ L_{\text{appearance}} = \frac{1}{\text{dim}} \sum_{c=1}^{\text{dim}} (A_{\text{original}, c} - A_{\text{current}, c})^2 $$
+                </p>
+                <br>
+                Where:
+                <ul>
+                    <li><b>\( L_{\text{appearance}} \)</b> represents the Mean Squared Error (MSE) loss between the original and current appearance feature vectors.</li>
+                    <li><b>\( A_{\text{original}} \)</b> is the original \( \text{dim} \)-dimensional feature vector.</li>
+                    <li><b>\( A_{\text{current}} \)</b> is the current \( \text{dim} \)-dimensional feature vector.</li>
+                    <li><b>c</b> denotes the channel index, running from 1 to \( \text{dim} \).</li>
+                </ul>
+                <br>
+                While the preservation objective helps prevent loss of identity, to achieve exact similarity with the original image, we use the idea of <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Cao_MasaCtrl_Tuning-Free_Mutual_Self-Attention_Control_for_Consistent_Image_Synthesis_and_ICCV_2023_paper.pdf">Mutual Self-Attention (MaSa)</a>. 
+                <br><br>
+                Mutual Self-Attention modifies the attention mechanism of the UNet to preserve the details of the image. To preserve the appearance of the original image, MaSa retains the layer-wise attention maps of the original image. During editing, the keys and values in the UNet's attention layers are replaced by the keys and values of the original image. This ensures the features are directly influenced by the original image instead of the edited image.
+                <br><br>
+                In conclusion, the movement loss alters the geometry, while the appearance loss, coupled with Mutual Self-Attention, preserves the appearance of the image.
+            </td>
+        </tr>
+    </center>
+</table>
+</body>
 
 
 
